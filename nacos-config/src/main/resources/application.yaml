@@ -1,0 +1,35 @@
+server:
+  port: 18084
+
+spring:
+  application:
+    name: nacos-config
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        serverAddr: 127.0.0.1:8848
+  config:
+    import:
+      - nacos:nacos-config.yaml?refresh=true
+      - nacos:nacos_base.yml
+  # The bean 'nacosConfigManager', defined in class path resource [com/alibaba/cloud/nacos/NacosConfigAutoConfiguration.class],
+  # could not be registered. A bean with that name has already been defined in class path resource
+  # [com/alibaba/cloud/nacos/NacosConfigBootstrapConfiguration.class] and overriding is disabled.
+  # Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+  main:
+    allow-bean-definition-overriding: true
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    com.alibaba.cloud.nacos.configdata: debug

@@ -1,0 +1,43 @@
+server:
+  port: 18083
+  # 解决加入sentinel后，控制台默认监听端口为8080，即使指定server.port也不生效
+  address: localhost
+
+spring:
+  application:
+    name: service-consumer
+  cloud:
+    nacos:
+      config:
+        serverAddr: 127.0.0.1:8848
+      discovery:
+        serverAddr: 127.0.0.1:8848
+        fail-fast: true
+    sentinel:
+      transport:
+        #port: 18080
+        dashboard: 127.0.0.1:18080
+      eager: true
+      datasource:
+        ds1:
+          file:
+            file: classpath:flowrule.json
+            data-type: json
+            rule-type: flow
+        ds2:
+          file:
+            file: classpath:degraderule.json
+            data-type: json
+            rule-type: degrade
+
+    loadbalancer:
+      ribbon:
+        enabled: false
+      configurations: zone-preference
+      zone: hangzhou
+  config:
+    import:
+      - nacos:nacos-config.yaml
+feign:
+  sentinel:
+    enabled: true

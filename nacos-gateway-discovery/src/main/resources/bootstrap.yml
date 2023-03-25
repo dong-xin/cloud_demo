@@ -1,0 +1,16 @@
+server:
+  port: 18087
+spring:
+  application:
+    name: gateway-discovery
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        extension-configs[0]:
+          data-id: gateway.yml
+          group: DEFAULT_GROUP
+          refresh: true

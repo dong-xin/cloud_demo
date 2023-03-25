@@ -1,0 +1,24 @@
+server:
+  port: 17071
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        extension-configs[0]:
+          data-id: application-dev.yml
+          group: DEFAULT_GROUP
+          refresh: true
+        #shared-configs[0]:
+          #data-id: application-dev.yml
+          #group: DEFAULT_GROUP
+          #refresh: true
+    #config:
+      #uri:
+        #- http://localhost:17070/
+      #profile: dev
+      #label: master

@@ -1,0 +1,34 @@
+[
+  {
+    "resource": "GET:http://service-provider/discovery/test",
+    "count": 0.5,
+    "grade": 1,
+    "timeWindow": 30
+  },
+  {
+    "resource": "GET:http://service-provider/discovery/",
+    "count": 0.5,
+    "grade": 1,
+    "timeWindow": 10
+  },
+  {
+    "resource": "GET:http://service-provider/discovery/sleep",
+    "count": 20.0,
+    "grade": 0,
+    "timeWindow": 30
+  },
+  {
+    "resource": "GET:http://service-provider/discovery/divide",
+    "count": 0.5,
+    "grade": 1,
+    "timeWindow": 30
+  },
+  {
+    "resource": "GET:http://service-provider/discovery/echo/{str}",
+    "controlBehavior": 0,
+    "count": 1,
+    "grade": 1,
+    "limitApp": "default",
+    "strategy": 0
+  }
+]

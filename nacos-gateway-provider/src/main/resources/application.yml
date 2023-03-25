@@ -1,0 +1,9 @@
+server:
+  port: 18086
+
+spring:
+  application:
+    name: gateway-provider
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1
