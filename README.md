@@ -1,5 +1,5 @@
 # cloud_demo
-> 根据Spring Cloud Alibab 2021.x中的Examples，自己动手实践而来。
+> 根据Spring Cloud Alibab 2021.x中的Examples，按照示例实践而来。
 
 |Spring Cloud Alibaba|Spring Cloud|Spring Boot|Java|Sentinel|Nacos|RocketMQ|Seata|
 |-------|-------|-------|-------|-------|-------|-------|-------|
