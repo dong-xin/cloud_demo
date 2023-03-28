@@ -2,11 +2,11 @@
 #base:
   #config:
     #mdb:
-      #hostname: 192.168.1.65 #your mysql server ip address
+      #hostname: 127.0.0.1 #your mysql server ip address
       #dbname: seata #your database name for test
       #port: 3306 #your mysql server listening port
       #username: 'root' #your mysql server username
-      #password: 'huace2021' #your mysql server password
+      #password: 'root' #your mysql server password
 
 server:
   port: 7091
@@ -37,7 +37,7 @@ seata:
     # support: nacos 、 consul 、 apollo 、 zk  、 etcd3
     type: nacos
     nacos:
-      server-addr: 127.0.0.15:8848
+      server-addr: 127.0.0.1:8848
       #username: nacos
       #password: nacos
       ##if use MSE Nacos with auth, mutex with username/password attribute
@@ -51,7 +51,7 @@ seata:
     type: nacos
     #preferred-networks: 30.240.*
     nacos:
-      application: seata-server-
+      application: seata-server
       server-addr: 127.0.0.1:8848
       namespace: public
       group: SEATA_GROUP
