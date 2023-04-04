@@ -2,7 +2,7 @@ package com.example.controller;
 
 import com.example.feign.OrderService;
 import com.example.feign.StorageService;
-import io.seata.spring.annotation.GlobalLock;
+import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,9 +44,10 @@ public class SeataController {
     }
 
     @GlobalTransactional(timeoutMills = 300000, name = "business-tx")
-    @GlobalLock
     @GetMapping(value = "/seata/rest", produces = "application/json")
     public String rest() {
+		LOGGER.info("business Service Begin ... xid: " + RootContext.getXID());
+
         String result = restTemplate.getForObject(
                 "http://127.0.0.1:18082/storage/" + COMMODITY_CODE + "/" + ORDER_COUNT,
                 String.class);
@@ -84,19 +85,19 @@ public class SeataController {
     @GlobalTransactional(timeoutMills = 300000, name = "business-tx")
     @GetMapping(value = "/seata/feign", produces = "application/json")
     public String feign() {
-        String result = storageService.storage(COMMODITY_CODE, ORDER_COUNT);
+		LOGGER.info("business Service Begin ... xid: " + RootContext.getXID());
 
+        String result = storageService.storage(COMMODITY_CODE, ORDER_COUNT);
         if (!SUCCESS.equals(result)) {
             throw new RuntimeException();
         }
 
-        result = orderService.order(USER_ID, COMMODITY_CODE, ORDER_COUNT);
+		result = orderService.order(USER_ID, COMMODITY_CODE, ORDER_COUNT);
 
         if (!SUCCESS.equals(result)) {
             throw new RuntimeException();
         }
 
         return SUCCESS;
-
     }
 }

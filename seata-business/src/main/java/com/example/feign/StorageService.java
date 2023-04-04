@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient("storage-service")
+@FeignClient("seata-storage")
 public interface StorageService {
     @GetMapping(path = "/storage/{commodityCode}/{count}")
     String storage(@PathVariable("commodityCode") String commodityCode,
