@@ -16,6 +16,7 @@ spring:
     sentinel:
       transport:
         #port: 18080
+        # 注册到sentinel管理平台
         dashboard: 127.0.0.1:18080
       eager: true
       datasource:
@@ -24,9 +25,20 @@ spring:
             file: classpath:flowrule.json
             data-type: json
             rule-type: flow
+          #nacos:
+            #serverAddr: 127.0.0.1:8848
+            #dataId: flowrule.json
+            #groupId: DEFAULT_GROUP
+            #data-type: json
         ds2:
-          file:
-            file: classpath:degraderule.json
+          #file:
+            #file: classpath:degraderule.json
+            #data-type: json
+            #rule-type: degrade
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: degraderule.json
+            groupId: DEFAULT_GROUP
             data-type: json
             rule-type: degrade
 
