@@ -1,0 +1,29 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: sidecar-service
+
+  cloud:
+    nacos:
+      #server-addr: 127.0.0.1:8848
+      discovery:
+        server-addr: 127.0.0.1:8848
+        #group: DEFAULT_GROUP
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+sidecar:
+  # 异构微服务的IP
+  ip: 127.0.0.1
+  # 异构微服务的端口
+  port: 8060
+  # 异构微服务的健康检查URL(这里不配置的话，默认会认为是UP)
+  health-check-url: http://127.0.0.1:8060/health.json
+# springboot actuator健康监控
+management:
+  endpoint:
+    health:
+      show-details: always

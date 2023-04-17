@@ -29,6 +29,7 @@
         <module>seata-account</module>
         <module>seata-order</module>
         <module>seata-storage</module>
+        <module>nacos-sidecar</module>
     </modules>
 
     <properties>
