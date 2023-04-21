@@ -30,7 +30,9 @@
         <module>seata-order</module>
         <module>seata-storage</module>
         <module>nacos-sidecar</module>
-    </modules>
+        <module>nacos-scheduler-server</module>
+		<module>nacos-scheduler-client</module>
+	</modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

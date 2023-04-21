@@ -45,6 +45,13 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+			<!-- Fastjson 1.2.83_Noneautotype introduced by default contains vulnerabilities -->
+			<exclusions>
+				<exclusion>
+					<groupId>com.alibaba</groupId>
+					<artifactId>fastjson</artifactId>
+				</exclusion>
+			</exclusions>
         </dependency>
         <!-- refresh add-->
         <dependency>

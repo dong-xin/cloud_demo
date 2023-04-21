@@ -26,8 +26,17 @@
                     <groupId>log4j</groupId>
                     <artifactId>log4j</artifactId>
                 </exclusion>
+				<exclusion>
+					<groupId>com.mysql</groupId>
+					<artifactId>mysql-connector-j</artifactId>
+				</exclusion>
             </exclusions>
         </dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.31</version>
+		</dependency>
     </dependencies>
 
 </project>

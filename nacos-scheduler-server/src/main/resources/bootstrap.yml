@@ -1,0 +1,17 @@
+server:
+  port: 10021
+  servlet:
+    context-path: /xxl-job-admin
+
+spring:
+  application:
+    name: nacos-scheduler-server
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        extension-configs:
+          - dataId: scheduler-server.yml
+            group: DEFAULT_GROUP
+            refresh: true
